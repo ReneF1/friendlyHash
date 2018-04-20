@@ -7,8 +7,12 @@ const colorArray = require('./dictionarys/colorArray')
 const foodArray = require('./dictionarys/foodArray')
 const quoteArray = require('./dictionarys/quotes')
 
-let selectRandomArrayItem = (array) => {
+let selectRandomArrayItemLowecase = (array) => {
     return array[Math.floor(Math.random() * array.length)].toLowerCase()
+}
+
+let selectRandomArrayItem = (array) => {
+    return array[Math.floor(Math.random() * array.length)]
 }
 
 exports.helloWorld = functions.https.onRequest((request, response) => {
@@ -22,24 +26,24 @@ exports.randomNumber = functions.https.onRequest((request, response) => {
 // Generates 14.940.908.286.000 unique random seed words
 exports.friendlyHash = functions.https.onRequest((request, response) => {
     response.send(
-        selectRandomArrayItem(namesArray.data)
+        selectRandomArrayItemLowecase(namesArray.data)
         + " the " +
-        selectRandomArrayItem(adjectiveAnimalArray.data)
+        selectRandomArrayItemLowecase(adjectiveAnimalArray.data)
         + " " +
-        selectRandomArrayItem(animalArray.data)
+        selectRandomArrayItemLowecase(animalArray.data)
         + " " +
-        selectRandomArrayItem(verbFoodArray.data)
+        selectRandomArrayItemLowecase(verbFoodArray.data)
         + " " +
-        selectRandomArrayItem(colorArray.data)
+        selectRandomArrayItemLowecase(colorArray.data)
         + " " +
-        selectRandomArrayItem(foodArray.data)
+        selectRandomArrayItemLowecase(foodArray.data)
     )
 })
 exports.animalName = functions.https.onRequest((request, response) => {
     response.send(
-        selectRandomArrayItem(adjectiveAnimalArray.data)
+        selectRandomArrayItemLowecase(adjectiveAnimalArray.data)
         + " " +
-        selectRandomArrayItem(animalArray.data)
+        selectRandomArrayItemLowecase(animalArray.data)
     )
 })
 exports.inspiringQuote = functions.https.onRequest((request, response) => {

@@ -5,6 +5,7 @@ const animalArray = require('./dictionarys/animalArray')
 const verbFoodArray = require('./dictionarys/verbFoodArray')
 const colorArray = require('./dictionarys/colorArray')
 const foodArray = require('./dictionarys/foodArray')
+const quoteArray = require('./dictionarys/quotes')
 
 let selectRandomArrayItem = (array) => {
     return array[Math.floor(Math.random() * array.length)].toLowerCase()
@@ -39,5 +40,10 @@ exports.animalName = functions.https.onRequest((request, response) => {
         selectRandomArrayItem(adjectiveAnimalArray.data)
         + " " +
         selectRandomArrayItem(animalArray.data)
+    )
+})
+exports.inspiringQuote = functions.https.onRequest((request, response) => {
+    response.send(
+        selectRandomArrayItem(quoteArray.data)
     )
 })

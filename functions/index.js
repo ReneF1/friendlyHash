@@ -34,3 +34,10 @@ exports.friendlyHash = functions.https.onRequest((request, response) => {
         selectRandomArrayItem(foodArray.data)
     )
 })
+exports.animalName = functions.https.onRequest((request, response) => {
+    response.send(
+        selectRandomArrayItem(adjectiveAnimalArray.data)
+        + " " +
+        selectRandomArrayItem(animalArray.data)
+    )
+})
